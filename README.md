@@ -8,21 +8,21 @@
 ## Getting Started (Installation)
 ## Generate Docker Container
 ```bash
-sudo docker container run -itd  --gpus '"device=1, 2"' --ipc=host --name deepAudio -v /home/sun_server/jhk/WorldITShow:/content -p 10000:8080 -p 8000:8000 python:3.8
+sudo docker container run -itd  --gpus '"device=1, 2"' --ipc=host --name deepAudio -p 10000:8080 -p 8000:8000 python:3.8
 sudo docker exec -it deepAudio /bin/bash
 cd root
 ```
 
+# Run Backend
 ## Setting Environment
+````
 apt update
 cd root
-
-````
 pip install "fastapi[all]"
 pip install "uvicorn[standard]"
 ````
 
-## 실행 명령어
+## Backend 실행 명령어
 ````
 uvicorn main:app --reload --host 0.0.0.0
 ````
